@@ -1,4 +1,4 @@
-package com.example.app.domain;
+package com.cardmanage.app.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.example.app.domain.ClanM;
+import com.cardmanage.app.domain.ClanM;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
