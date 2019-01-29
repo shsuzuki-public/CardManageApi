@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.cardmanage.app.domain.DeckM;
@@ -18,7 +19,8 @@ public class DeckMService {
 	DeckMRepository deckMRepository;
 	
 	public List<DeckM> getAllDeckList(){
-		return deckMRepository.findAll();
+		//return deckMRepository.findAll();
+		return deckMRepository.findAll(new Sort(Sort.Direction.ASC, "deckId"));
 	}
 	
 	public Optional<DeckM> getDeck(Integer deckId){
