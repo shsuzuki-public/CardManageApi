@@ -1,7 +1,6 @@
 package com.cardmanage.app.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -22,9 +21,13 @@ public class DeckMService {
 		//return deckMRepository.findAll();
 		return deckMRepository.findAll(new Sort(Sort.Direction.ASC, "deckId"));
 	}
-	
-	public Optional<DeckM> getDeck(Integer deckId){
-		return deckMRepository.findDeckFromId(deckId);
+
+	public List<DeckM> getTargetClanDecks(Integer clanId){
+		return deckMRepository.findDecksByClanId(clanId);
+	}
+
+	public List<DeckM> getDeckDetail(Integer deckId){
+		return deckMRepository.findDeckDetailByDeckId(deckId);
 	}
 
 }

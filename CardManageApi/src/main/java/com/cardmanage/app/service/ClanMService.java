@@ -15,7 +15,7 @@ import com.cardmanage.app.repository.ClanMRepository;
 public class ClanMService {
 	@Autowired
 	ClanMRepository clanMRepository;
-	public List<ClanM> getData(){
+	public List<ClanM> getAllClanList(){
 		return clanMRepository.findAll();	
 	}
 

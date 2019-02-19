@@ -1,6 +1,6 @@
 package com.cardmanage.app.repository;
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,6 +12,9 @@ import com.cardmanage.app.domain.DeckM;
 @Repository
 public interface DeckMRepository extends JpaRepository<DeckM,Integer> {
 	@Query(value="SELECT * FROM DECK_M WHERE DECK_ID = :deckId limit 1", nativeQuery = true)
-	Optional<DeckM> findDeckFromId(@Param("deckId") Integer deckId);
+	List<DeckM> findDeckDetailByDeckId(@Param("deckId") Integer deckId);
+
+	@Query(value="SELECT * FROM DECK_M WHERE CLAN_ID = :clanId", nativeQuery = true)
+	List<DeckM> findDecksByClanId(@Param("clanId") Integer clanId);
 }
 
