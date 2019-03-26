@@ -18,5 +18,11 @@ public class ClanMService {
 	public List<ClanM> getAllClanList(){
 		return clanMRepository.findAll();	
 	}
+	public ClanM createClan(ClanM clanData) {
+		return clanMRepository.save(clanData);
+	}
 
+	public ClanM searchClan(String clanId){
+		return clanMRepository.findOne(clanId);
+	}
 }

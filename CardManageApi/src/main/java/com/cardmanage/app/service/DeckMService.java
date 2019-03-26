@@ -30,4 +30,7 @@ public class DeckMService {
 		return deckMRepository.findDeckDetailByDeckId(deckId);
 	}
 
+	public DeckM createDeck(DeckM deck) {
+		return deckMRepository.save(deck);
+	}
 }

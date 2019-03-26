@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -21,7 +22,8 @@ import lombok.NoArgsConstructor;
 public class DeckM implements Serializable{
 	@Id
 	@Column(name="DECK_ID",nullable=false)
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="DECK_ID_SEQ")
+	@SequenceGenerator(name="DECK_ID_SEQ", sequenceName="DECK_ID_SEQ", allocationSize=1)
 	private Integer deckId;
 	@Column(name="CLAN_ID",nullable=false)
 	private Integer clanId;
