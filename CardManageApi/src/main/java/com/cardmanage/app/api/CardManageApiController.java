@@ -1,34 +1,26 @@
 package com.cardmanage.app.api;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import com.cardmanage.app.domain.ClanM;
 import com.cardmanage.app.domain.DeckM;
 import com.cardmanage.app.service.ClanMService;
 import com.cardmanage.app.service.DeckMService;
 
-import lombok.val;
 
 @RestController
 public class CardManageApiController {
-	@Autowired
-	DeckMService deckMService;
+/*	@Autowired
+	DeckMService deckMService;*/
 	@Autowired
 	ClanMService clanMService;
 
@@ -50,7 +42,7 @@ public class CardManageApiController {
 		return clanMService.searchClan(clanId);
 	}
 
-	@RequestMapping(value="/decks", method=RequestMethod.GET)
+/*	@RequestMapping(value="/decks", method=RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
 	public List<DeckM> getDeckList(){
 		return deckMService.getAllDeckList();		
@@ -67,7 +59,7 @@ public class CardManageApiController {
 	public List<DeckM> getDeckDetailList(@PathVariable("deckId") Integer deckId){
 		return deckMService.getDeckDetail(deckId);
 	}
-
+*/
 /*	@RequestMapping(value="/decks/deckregist", method=RequestMethod.POST)
 	public ResponseEntity<DeckM> registDeck(@ModelAttribute DeckM deckM, UriComponentsBuilder uriComponentsBuilder){
 		List<DeckM> deckData = new ArrayList<DeckM>();
@@ -77,9 +69,9 @@ public class CardManageApiController {
 		return new ResponseEntity<DeckM>(deckM, headers, HttpStatus.CREATED);
 	}
 */
-	@RequestMapping(value="/decks/deckregist", method=RequestMethod.POST)
+/*	@RequestMapping(value="/decks/deckregist", method=RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public DeckM createDeck(@RequestBody DeckM deck){
 		return deckMService.createDeck(deck);
 	}
-}
+*/}

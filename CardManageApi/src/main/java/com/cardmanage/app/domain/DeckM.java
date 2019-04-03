@@ -27,16 +27,8 @@ public class DeckM implements Serializable{
 	private Integer deckId;
 	@Column(name="CLAN_ID",nullable=false)
 	private Integer clanId;
-	@Column(name="REGULATION_FLAG",nullable=false)
-	private Integer regFlag;
 	@Column(name="DECK_NAME")
 	private String deckName;
-	@Column(name="INSERT_DATE",nullable=false)
-	private String insertDate;
-	@Column(name="UPDATE_DATE",nullable=false)
-	private String updateDate;
-	@Column(name="DELETE_FLAG",nullable=false)
-	private String deleteFlag;
-	@Column(name="VERSION_NO",nullable=false)
-	private String versionNo;
+	@Column(name="REGULATION_FLAG",nullable=false)
+	private Integer regFlag;
 }
