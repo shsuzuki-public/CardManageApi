@@ -1,4 +1,4 @@
-package com.cardmanage.app.service;
+package com.cardmanage.domain.service;
 
 import java.util.List;
 
@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.cardmanage.app.domain.DeckDetailT;
-import com.cardmanage.app.domain.DeckM;
-import com.cardmanage.app.repository.DeckDetailRepository;
-import com.cardmanage.app.repository.DeckMRepository;
+import com.cardmanage.domain.repository.DeckDetailRepository;
+import com.cardmanage.domain.repository.DeckMRepository;
+import com.cardmanage.infrastructure.entity.DeckDetailT;
+import com.cardmanage.infrastructure.entity.DeckM;
 
 @Service
 @Transactional
@@ -29,10 +29,10 @@ public class DeckMService {
 		return deckMRepository.findDecksByClanId(clanId);
 	}
 
-	public List<DeckDetailT> getDeckDetail(Integer deckId){
+/*	public List<DeckDetailT> getDeckDetail(Integer deckId){
 		return deckDetail.findDeckDetailByDeckId(deckId);
 	}
-
+*/
 	public DeckM createDeck(DeckM deck) {
 		return deckMRepository.save(deck);
 	}

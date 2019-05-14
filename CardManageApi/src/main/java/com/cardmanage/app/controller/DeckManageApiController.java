@@ -1,4 +1,4 @@
-package com.cardmanage.app.api;
+package com.cardmanage.app.controller;
 
 import java.util.List;
 
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cardmanage.app.domain.ClanM;
-import com.cardmanage.app.domain.DeckDetailT;
-import com.cardmanage.app.domain.DeckM;
-import com.cardmanage.app.service.ClanMService;
-import com.cardmanage.app.service.DeckMService;
+import com.cardmanage.domain.service.ClanMService;
+import com.cardmanage.domain.service.DeckMService;
+import com.cardmanage.infrastructure.entity.ClanEntity;
+import com.cardmanage.infrastructure.entity.DeckDetailT;
+import com.cardmanage.infrastructure.entity.DeckM;
 
 @RestController
 @RequestMapping(value="/deck")
@@ -35,12 +35,12 @@ public class DeckManageApiController {
 		return deckMService.getTargetClanDecks(clanId);
 	}
 
-	@RequestMapping(value="/detail/{deckId}", method=RequestMethod.GET)
+	/*@RequestMapping(value="/detail/{deckId}", method=RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
 	public List<DeckDetailT> getDeckDetailList(@PathVariable("deckId") Integer deckId){
 		return deckMService.getDeckDetail(deckId);
 	}
-
+*/
 	@RequestMapping(method=RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public DeckM createDeck(@RequestBody DeckM deck){

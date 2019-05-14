@@ -1,4 +1,4 @@
-package com.cardmanage.app.domain;
+package com.cardmanage.infrastructure.entity;
 
 import java.io.Serializable;
 

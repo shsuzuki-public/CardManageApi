@@ -1,0 +1,45 @@
+Issue
+1.クラン一覧テーブルの全レコード取得
+2.デッキ一覧テーブルの全レコード取得
+3.デッキ一覧テーブルの条件一致レコード取得
+4.デッキ詳細テーブルの条件一致レコード取得
+5.カード一覧テーブルの全レコード取得
+6.デッキ詳細登録、デッキ一覧登録、クラン一覧登録
+7.カード情報登録
+
+◆クラン系
+	・全クラン取得
+	・指定クラン取得
+	・クラン登録
+◆デッキ系
+	・全デッキ取得
+	・クランに紐付くデッキ取得
+	・デッキの内容取得
+	・デッキのタイトル登録
+	・デッキの内容登録
+◆カード系
+	・全カード取得
+	・指定カード取得
+	・カード登録
+
+
+cardmanage
+	ApiApplication.java
+	app
+		controller
+			ApiController.java
+		form
+			各Form.java
+	domain
+		repository
+			各Repository.java
+		service
+			各Service.java
+		dto
+			各テーブルDto.java
+	infrastructure
+		entity
+			各テーブル.java
+		repository
+			各RepositoryImpl.java
+			各JpaRepository.java

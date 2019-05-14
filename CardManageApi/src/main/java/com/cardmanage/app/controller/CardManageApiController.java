@@ -1,4 +1,4 @@
-package com.cardmanage.app.api;
+package com.cardmanage.app.controller;
 
 import java.util.List;
 
@@ -8,16 +8,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cardmanage.app.domain.ClanM;
-import com.cardmanage.app.domain.DeckM;
-import com.cardmanage.app.service.ClanMService;
-import com.cardmanage.app.service.DeckMService;
+import com.cardmanage.domain.dto.ClanDto;
+import com.cardmanage.domain.service.ClanMService;
+import com.cardmanage.domain.service.DeckMService;
+import com.cardmanage.infrastructure.entity.ClanEntity;
+import com.cardmanage.infrastructure.entity.DeckM;
 
 
 @RestController
+@RequestMapping(value="/vangurd")
 public class CardManageApiController {
 /*	@Autowired
 	DeckMService deckMService;*/
@@ -26,20 +29,22 @@ public class CardManageApiController {
 
 	@RequestMapping(value="/clans", method=RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
-	public List<ClanM> getClans(){
+	public List<ClanEntity> getClans(){
 		return clanMService.getAllClanList();
 	}
 
 	@RequestMapping(value="/clans", method=RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public ClanM registClan(@RequestBody ClanM clan) {
+	public ClanDto registClan(@RequestBody ClanDto clan) {
 		return clanMService.createClan(clan); 
 	}
 
-	@RequestMapping(value="/clans/{clanId}", method=RequestMethod.GET)
+	@RequestMapping(value="/clans/search", method=RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
-	public ClanM getClan(@PathVariable("clanId") String clanId){
-		return clanMService.searchClan(clanId);
+	public List<ClanEntity> getClan(@RequestParam(value="clanId") String clanId,
+			@RequestParam(value="memberStateId", required=false) String memberStateId){
+		
+		return clanMService.searchClan(clanId, memberStateId);
 	}
 
 /*	@RequestMapping(value="/decks", method=RequestMethod.GET)
